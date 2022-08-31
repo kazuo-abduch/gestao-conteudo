@@ -14,7 +14,7 @@ const createPost = async (req, res) => {
   }
 };
 
-const getAllPosts = async () => {
+const getAllPosts = async (_req, res) => {
   try {
     const allPosts = await postsServices.getAllPosts();
     return res.status(200).send(allPosts);
