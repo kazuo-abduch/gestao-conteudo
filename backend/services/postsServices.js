@@ -5,6 +5,14 @@ const createPost = async (postObj) => {
   return post;
 };
 
+const getAllPosts = async () => {
+  const allPosts = await Posts.findAll({
+    attributes: { exclude: ['createDate'] }
+  });
+  return allPosts;
+};
+
 module.exports = {
+  getAllPosts,
   createPost,
 };

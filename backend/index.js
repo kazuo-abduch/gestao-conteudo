@@ -6,6 +6,9 @@ const postsControllers = require('./controllers/postsControllers');
 const app = express();
 
 app.use(express.json());
+app.get('/posts',
+  postsControllers.getAllPosts
+)
 app.post('/posts',
   postsControllers.createPost
 );
