@@ -19,7 +19,15 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      update_date: {
+      oldTitle: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      oldContent: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      updateDate: {
         allowNull: false,
         type: Sequelize.DATE
       }
