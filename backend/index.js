@@ -1,9 +1,11 @@
-const app = require('./app');
+const express = require('express');
+const postsControllers = require('./controllers/postsControllers');
 
-const PORT = process.env.DB_PORT;
+const app = express();
 
-const server = app.listen(PORT, () => console.log(
-  `Server is running on PORT: ${PORT}`,
-));
+app.use(express.json());
+app.post('/posts',
+  postsControllers.createPost
+);
 
-export default server;
+app.listen(3000, () => console.log('ouvindo porta 3000!'));

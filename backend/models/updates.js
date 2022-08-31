@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Updates = sequelize.define('Updates', {
-    id: { type: DataTypes.INTEGER, primaryLey: true, autoIncrement: true },
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     postId: DataTypes.INTEGER,
     oldTitle: DataTypes.STRING,
     oldContent: DataTypes.STRING,

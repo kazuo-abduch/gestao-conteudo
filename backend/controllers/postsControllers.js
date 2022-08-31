@@ -1,6 +1,6 @@
 const postsServices = require('../services/postsServices');
 
-const createPosts = async (req, res) => {
+const createPost = async (req, res) => {
   const newPost = req.body;
   const postObj = {
     title: newPost.title,
@@ -15,5 +15,5 @@ const createPosts = async (req, res) => {
 };
 
 module.exports = {
-  createPosts,
+  createPost
 }
