@@ -1,4 +1,6 @@
+require('dotenv/config');
 const express = require('express');
+const PORT = process.env.PORT;
 const postsControllers = require('./controllers/postsControllers');
 
 const app = express();
@@ -8,4 +10,4 @@ app.post('/posts',
   postsControllers.createPost
 );
 
-app.listen(3000, () => console.log('ouvindo porta 3000!'));
+app.listen(PORT, () => console.log(`ouvindo porta ${PORT}`));
