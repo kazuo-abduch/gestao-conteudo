@@ -12,5 +12,8 @@ app.get('/posts',
 app.post('/posts',
   postsControllers.createPost
 );
+app.put('/posts/:id',
+  postsControllers.updatePost
+)
 
 app.listen(PORT, () => console.log(`ouvindo porta ${PORT}`));

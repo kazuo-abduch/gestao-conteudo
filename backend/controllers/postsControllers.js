@@ -23,7 +23,24 @@ const getAllPosts = async (_req, res) => {
   }
 };
 
+const updatePost = async (req, res) => {
+  const newPost = req.body;
+  const { id } = req.params;
+  const postObj = {
+    title: newPost.title,
+    content: newPost.content,
+  }
+  console.log(postObj);
+  try {
+    await postsServices.updatePost(id, postObj);
+    return res.status(200).send(postObj)
+  } catch (error) {
+    return res.status(404).send({ message: error.message });
+  }
+};
+
 module.exports = {
   getAllPosts,
   createPost,
+  updatePost,
 }
