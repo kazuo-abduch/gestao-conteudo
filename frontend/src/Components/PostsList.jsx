@@ -9,9 +9,10 @@ function RenderPostList() {
 
   const renderPostList = () => {
     return (
-      postListState.map((post) => {
+      postListState.map((post, index) => {
         return (
           <PostCard
+            key={ index }
             title={ post.title }
             content={ post.content }
           />
