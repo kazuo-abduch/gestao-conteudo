@@ -10,13 +10,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/posts',
+app.get('/',
   postsControllers.getAllPosts
 )
-app.post('/posts',
+app.post('/',
   postsControllers.createPost
 );
-app.put('/posts/:id',
+app.put('/:id',
   postsControllers.updatePost
 )
 app.get('/updates/:id',

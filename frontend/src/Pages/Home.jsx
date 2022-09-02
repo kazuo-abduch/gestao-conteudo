@@ -1,8 +1,12 @@
 import React from 'react';
+import PostsList from '../Components/PostsList';
 
 function Home() {
   return (
-    <div>HomePage</div>
+    <>
+      <div>HomePage</div>
+      <PostsList />
+    </>
   )
 }
 
