@@ -1,23 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import getAllPosts from '../api/api';
+import React, { useContext } from 'react';
+import PostListContext from '../context/postListContext';
+import PostCard from './PostCard';
 
 function RenderPostList() {
-  const [postListState, setPostList] = useState();
   
-  useEffect(() => {
-    function requestPosts() {
-      getAllPosts().then((response) => {
-        const postList = response.results;
-        setPostList(postList)
-      })
-    };
-    requestPosts();
-  })
+  const { postListState, loading } = useContext(PostListContext)
+  
 
-  console.log(postListState);
+  const renderPostList = () => {
+    console.log(postListState);
+    console.log(loading);
+    postListState.map((post) => {
+      return (
+        <div>
+          <PostCard title={ post.title }/>
+        </div>
+      )
+    })
+  }
+
   return (
     <div>
-      Teste
+      { loading ? 'Loading' : renderPostList() }
     </div>
   )
 }
