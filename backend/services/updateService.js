@@ -5,6 +5,12 @@ const createUpdate = async (postObj) => {
   return newUpdate;
 };
 
+const getUpdatesByPostId = async () => {
+  const updateList = await Updates.findAll();
+  return updateList;
+}
+
 module.exports = {
   createUpdate,
+  getUpdatesByPostId,
 };
