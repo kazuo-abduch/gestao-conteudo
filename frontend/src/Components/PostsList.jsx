@@ -8,15 +8,16 @@ function RenderPostList() {
   
 
   const renderPostList = () => {
-    console.log(postListState);
-    console.log(loading);
-    postListState.map((post) => {
-      return (
-        <div>
-          <PostCard title={ post.title }/>
-        </div>
-      )
-    })
+    return (
+      postListState.map((post) => {
+        return (
+          <PostCard
+            title={ post.title }
+            content={ post.content }
+          />
+        )
+      })
+    )
   }
 
   return (

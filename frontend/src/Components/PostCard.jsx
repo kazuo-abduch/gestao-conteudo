@@ -1,10 +1,15 @@
 import React from 'react';
 
 function PostCard(props) {
-  const { title } = props;
+  const { title, content } = props;
   return (
     <div>
-      { title }
+      <div>
+        { title }
+      </div>
+      <div>
+        { content }
+      </div>
     </div>
   )
 }
