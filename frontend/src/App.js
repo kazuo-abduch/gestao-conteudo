@@ -1,10 +1,13 @@
 import React from 'react';
 import PageRoutes from './Routes/Routes';
+import PostListProvider from './context/postListProvider';
 
 
 function App() {
   return (
-    <PageRoutes />
+    <PostListProvider>
+      <PageRoutes />
+    </PostListProvider>
   );
 }
 
