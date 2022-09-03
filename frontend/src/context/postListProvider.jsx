@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PostListContext from './postListContext';
-import getAllPosts from '../api/api';
 
 function PostListProvider({ children }) {
   const [postListState, setPostList] = useState();
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    function requestPosts() {
-      getAllPosts().then((response) => {
-        setPostList(response);
-        setLoading(false);
-      })
-    };
-    requestPosts();
-  }, [])
+  const [title, setNewTitle] = useState();
+  const [content, setNewContent] = useState();
 
   return (
     <PostListContext.Provider
@@ -23,6 +14,10 @@ function PostListProvider({ children }) {
         setPostList,
         loading,
         setLoading,
+        title,
+        setNewTitle,
+        content,
+        setNewContent,
       } }
     >
       { children }

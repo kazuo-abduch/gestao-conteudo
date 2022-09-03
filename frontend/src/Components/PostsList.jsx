@@ -1,10 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PostListContext from '../context/postListContext';
 import PostCard from './PostCard';
+import { getAllPosts } from '../api/api';
 
 function RenderPostList() {
   
-  const { postListState, loading } = useContext(PostListContext)
+  const { postListState, loading, setPostList, setLoading } = useContext(PostListContext)
+
+  useEffect(() => {
+    function requestPosts() {
+      getAllPosts().then((response) => {
+        setPostList(response);
+        setLoading(false);
+      })
+    };
+    requestPosts();
+  }, [setLoading, setPostList])
   
 
   const renderPostList = () => {
