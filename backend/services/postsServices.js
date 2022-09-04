@@ -40,6 +40,7 @@ const updatePost = async (id, post) => {
 
 module.exports = {
   getAllPosts,
+  findPost,
   createPost,
   updatePost,
 };

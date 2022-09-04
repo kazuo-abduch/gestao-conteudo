@@ -12,6 +12,9 @@ app.use(cors());
 
 app.get('/',
   postsControllers.getAllPosts
+);
+app.get('/:id',
+  postsControllers.getPostById
 )
 app.post('/',
   postsControllers.createPost

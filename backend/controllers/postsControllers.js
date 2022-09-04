@@ -23,6 +23,16 @@ const getAllPosts = async (_req, res) => {
   }
 };
 
+const getPostById = async (req, res) => {
+  const { id } = req.params
+  try {
+    const postById = await postsServices.findPost(id);
+    return res.status(200).send(postById);
+  } catch (error) {
+    return res.status(404).send({ message: error.message });
+  }
+}
+
 const updatePost = async (req, res) => {
   const newPost = req.body;
   const { id } = req.params;
@@ -30,7 +40,6 @@ const updatePost = async (req, res) => {
     title: newPost.title,
     content: newPost.content,
   }
-  console.log(postObj);
   try {
     await postsServices.updatePost(id, postObj);
     return res.status(200).send(postObj)
@@ -41,6 +50,7 @@ const updatePost = async (req, res) => {
 
 module.exports = {
   getAllPosts,
+  getPostById,
   createPost,
   updatePost,
 }

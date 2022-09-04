@@ -10,6 +10,7 @@ function RenderPostList() {
   useEffect(() => {
     function requestPosts() {
       getAllPosts().then((response) => {
+        response.reverse(); //inverte a ordem para aparecer o post mais recente primeiro
         setPostList(response);
         setLoading(false);
       })
