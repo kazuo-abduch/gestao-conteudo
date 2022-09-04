@@ -25,7 +25,7 @@ function RenderPostList() {
         return (
           <PostCard
             key={ index }
-            index={ index }
+            index={ post.id }
             title={ post.title }
             content={ post.content }
           />

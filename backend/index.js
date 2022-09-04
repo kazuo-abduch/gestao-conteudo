@@ -15,15 +15,18 @@ app.get('/',
 );
 app.get('/:id',
   postsControllers.getPostById
-)
+);
 app.post('/',
   postsControllers.createPost
 );
 app.put('/:id',
   postsControllers.updatePost
-)
+);
+app.delete('/:id',
+  postsControllers.deletePost
+);
 app.get('/updates/:id',
   updatesControllers.getUpdatesByPostId
-)
+);
 
 app.listen(PORT, () => console.log(`ouvindo porta ${PORT}`));

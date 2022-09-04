@@ -2,6 +2,14 @@ const { Posts, Updates } = require('../models');
 
 const createPost = async (postObj) => {
   const post = await Posts.create(postObj);
+  console.log(post);
+  const oldPostObj = {
+    postId: post.id,
+    oldTitle: postObj.title,
+    oldContent: postObj.content,
+    oldDate: post.createDate,
+  }
+  await Updates.create(oldPostObj);
   return post;
 };
 
@@ -25,7 +33,6 @@ const updatePost = async (id, post) => {
     oldContent: post.content,
     oldDate: oldPost.createDate,
   }
-  console.log(oldPostObj);
   const newUpdate = await Updates.create(oldPostObj);
   if (!newUpdate) {
     throw new Error('Update failed');
@@ -38,9 +45,14 @@ const updatePost = async (id, post) => {
   return updatedPost;
 };
 
+const deletePost = async (id) => {
+  await Posts.delete({ where: { id } } );
+}
+
 module.exports = {
   getAllPosts,
   findPost,
   createPost,
   updatePost,
+  deletePost,
 };
