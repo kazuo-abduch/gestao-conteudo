@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { getPostById, findUpdates, updatePost } from '../api/api';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { getPostById, findUpdates, updatePost, deletePost } from '../api/api';
 
 function Update() {
-  const { id } = useParams()
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [postTitle, setTitle] = useState();
   const [postContent, setContent] = useState();
   const [updateList, setUpdateList] = useState()
@@ -69,11 +70,17 @@ function Update() {
     )
   }
 
+  const requestDeletePost = async () => {
+    await deletePost(id);
+    navigate(-1);
+  }
+
   return (
     <>
       <Link to="/">Voltar</Link>
       <div>UpdatePage</div>
       { isLoading ? 'Loading' : renderPost() }
+      <button onClick={ requestDeletePost }>Delete Post</button>
     </>
   )
 }
