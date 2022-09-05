@@ -1,11 +1,12 @@
 import React from 'react';
 import PostsList from '../Components/PostsList';
 import NewPostCard from '../Components/NewPostCard';
+import './Home.css';
 
 function Home() {
   return (
     <>
-      <div>HomePage</div>
+      <header>HomePage</header>
       <NewPostCard />
       <PostsList />
     </>

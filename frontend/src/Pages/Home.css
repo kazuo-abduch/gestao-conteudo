@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+}
+
+header {
+  background-color: #916188;
+  color: white;
+  display: flex;
+  font-weight: bolder;
+  font-size: large;
+  height: 35px;
+  padding-left: 70px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.back-button {
+  text-align: end;
+  padding-right: 15px;
+}
+
+.update-title-page {
+  margin: 0 auto;
+}
+
+.update-subtitle {
+  background-color: #916188;
+  color: white;
+  font-weight: bold;
+  height: 20px;
+  padding: 5px;
+  margin-top: 10px;
+  text-align: center;
+}

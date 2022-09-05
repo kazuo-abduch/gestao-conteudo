@@ -76,16 +76,22 @@ function Update() {
             isHomePage={ false }
           />
         </form>
-        <div>Update History</div>
+        <div className='update-subtitle'>Update History</div>
         { renderUpdates() }
       </div>
     )
   }
 
   return (
-    <>
-      <Link to="/">Voltar</Link>
-      <div>UpdatePage</div>
+    <>      
+      <header>
+        <div className='update-title-page'>
+          UpdatePage
+        </div>
+        <Link to="/">
+          <div className='back-button'>Voltar</div>
+        </Link>
+      </header>
       { isLoading ? 'Loading' : renderPost() }
     </>
   )
