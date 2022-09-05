@@ -19,7 +19,7 @@ module.exports = {
       },
       createDate: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       }
     });
   },

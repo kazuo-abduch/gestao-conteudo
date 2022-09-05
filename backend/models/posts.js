@@ -3,10 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     title: DataTypes.STRING,
     content: DataTypes.STRING,
-    createDate: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
+    createDate: DataTypes.STRING,
   }, {
     tableName: 'Posts',
     timestamps: false,

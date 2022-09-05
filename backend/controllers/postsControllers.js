@@ -8,7 +8,7 @@ const createPost = async (req, res) => {
   }
   try {
     const createdPost = await postsServices.createPost(postObj);
-    return res.status(201).send(createdPost)
+    return res.status(201).send(postObj)
   } catch (error) {
     return res.status(404).send({ message: error.message });
   }

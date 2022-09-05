@@ -14,7 +14,7 @@ export const getPostById = async (id) => {
 }
 
 export const createNewPost = async (title, content) => {
-  const result = await axios.post(api_url, { title, content})
+  const result = await axios.post(api_url, { title, content })
   return result;
 }
 

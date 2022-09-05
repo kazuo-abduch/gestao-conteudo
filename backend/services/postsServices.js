@@ -1,12 +1,17 @@
 const { Posts, Updates } = require('../models');
 
-const createPost = async (postObj) => {
+const createPost = async ({ title, content }) => {
+  const createDate = Date.now() //create date with unix timestamp format
+  const postObj = {
+    title, content, createDate
+  }
   const post = await Posts.create(postObj);
   const oldPostObj = {
     postId: post.id,
     oldTitle: postObj.title,
     oldContent: postObj.content,
     oldDate: post.createDate,
+    updateDate: post.createDate,
   }
   await Updates.create(oldPostObj);
   return post;
@@ -25,12 +30,14 @@ const findPost = async (id) => {
 }
 
 const updatePost = async (id, post) => {
+  const updateDate = Date.now() //update date with unix timestamp format
   const oldPost = await findPost(id);
   const oldPostObj = {
     postId: id,
     oldTitle: post.title,
     oldContent: post.content,
     oldDate: oldPost.createDate,
+    updateDate,
   }
   const newUpdate = await Updates.create(oldPostObj);
   if (!newUpdate) {

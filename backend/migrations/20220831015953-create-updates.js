@@ -29,11 +29,11 @@ module.exports = {
       },
       oldDate: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       updateDate: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       }
     });
   },

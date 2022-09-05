@@ -4,11 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     postId: DataTypes.INTEGER,
     oldTitle: DataTypes.STRING,
     oldContent: DataTypes.STRING,
-    oldDate: DataTypes.DATE,
-    updateDate: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
+    oldDate: DataTypes.STRING,
+    updateDate: DataTypes.STRING,
   }, {
     tableName: 'Updates',
     timestamps: false,
