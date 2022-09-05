@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import PostListContext from '../context/postListContext';
 import { createNewPost } from '../api/api';
+import './NewPost.css';
 
 function NewPostCard() {
 
@@ -19,10 +20,10 @@ function NewPostCard() {
   }
 
   return (
-    <form>
-      <input placeholder='New Title' onChange={ saveTitleOnState }/>
-      <input placeholder='Description' onChange={ saveContentOnState } />
-      <button type="submit" onClick={ onSubmit }>Confirm</button>
+    <form className='form-conteiner'>
+      <input className='title-input' placeholder='Title' onChange={ saveTitleOnState }/>
+      <textarea className='content-input' placeholder='Description' onChange={ saveContentOnState } />
+      <button className='submit-button' type="submit" onClick={ onSubmit }>Confirm</button>
     </form>
   )
 }

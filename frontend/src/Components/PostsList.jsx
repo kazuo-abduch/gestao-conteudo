@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import PostListContext from '../context/postListContext';
+import { Link } from 'react-router-dom';
 import PostCard from './PostCard';
+import DeleteButton from './DeleteButton';
+import './PostList.css';
 import { getAllPosts } from '../api/api';
 
 function RenderPostList() {
@@ -23,12 +26,22 @@ function RenderPostList() {
     return (
       postListState.map((post, index) => {
         return (
-          <PostCard
-            key={ index }
-            index={ post.id }
-            title={ post.title }
-            content={ post.content }
-          />
+          <div className='cardPost' key={ index }>
+            <div>
+              <Link to={ `/update/${ post.id }` } >
+                <PostCard
+                  title={ post.title }
+                  content={ post.content }
+                />
+              </Link>
+            </div>
+            <div>
+              <DeleteButton
+                id={ post.id }
+                isHomePage={ true }
+              />
+            </div>
+          </div>
         )
       })
     )

@@ -1,0 +1,18 @@
+a {
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+  border-radius: 9px 9px 0 0;
+  background-color: #916188;
+  color: white;
+  font-size: larger;
+  font-weight: bolder;
+  padding-left: 7px;
+}
+
+.content {
+  color: black;
+  padding-left: 10px;
+}

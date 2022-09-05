@@ -1,0 +1,26 @@
+.form-conteiner {
+  margin: auto;
+  width: 70%;
+}
+
+.title-input {
+  border-radius: 5px;
+  display: block;
+  height: 30px;
+  margin: auto;
+  width: 100%;
+}
+
+.content-input {
+  border-radius: 5px;
+  display: block;
+  height: 100px;
+  margin: auto;
+  width: 100%;
+}
+
+button {
+  border-radius: 10px;
+  height: 25px;
+  width: 100px;
+}

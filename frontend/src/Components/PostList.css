@@ -1,0 +1,9 @@
+.cardPost {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 100px;
+  margin: 15px auto;
+  position: relative;
+  text-decoration: none;
+  width: 87%;
+}

@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import './PostCard.css';
 
 function PostCard(props) {
-  const { title, content, index } = props;
+  const { title, content } = props;
   return (
-    <Link to={ `/update/${ index }` }>
-      <div>
+    <div>
+      <div className='title'>
         { title }
       </div>
-      <div>
+      <div className='content'>
         { content }
       </div>
-    </Link>
+    </div>
   )
 }
 

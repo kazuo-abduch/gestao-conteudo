@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { getPostById, findUpdates, updatePost, deletePost } from '../api/api';
+import { Link, useParams } from 'react-router-dom';
+import PostCard from '../Components/PostCard';
+import DeleteButton from '../Components/DeleteButton';
+import './Update.css';
+import { getPostById, findUpdates, updatePost } from '../api/api';
 
 function Update() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [postTitle, setTitle] = useState();
   const [postContent, setContent] = useState();
   const [updateList, setUpdateList] = useState()
@@ -13,7 +15,6 @@ function Update() {
   useEffect(() => {
     function requestUpdateList(id) {
       findUpdates(id).then((response) => {
-        response.pop(); //remove ultimo elemento da lista. Este representa o post atual, e aparecerá no input
         response.reverse(); //inverte a ordem dos updates para aparecer primeiro o update mais recente
         setUpdateList(response);
         setPostLoading(false);
@@ -40,9 +41,13 @@ function Update() {
   const renderUpdates = () => {
     return updateList.map((update, index) => {
       return (
-        <div key={index}>
-          <div>{update.oldTitle}</div>
-          <div>{update.oldContent}</div>
+        <div className='cardPost'>
+          <PostCard
+              key={ index }
+              index={ update.id }
+              title={ update.oldTitle }
+              content={ update.oldContent }
+            />
         </div>
       )
     })
@@ -59,20 +64,22 @@ function Update() {
   
   const renderPost = () => {
     return (
-      <form>
-        <input value={ postTitle } onChange={ updateTitle } />
-        <input value={ postContent } onChange={ updateContent } />
-        <button type="submit" onClick={ requestUpdatePost }>
-          Update
-        </button>
+      <div>
+        <form className='conteiner'>
+          <input className='title-input' value={ postTitle } onChange={ updateTitle } />
+          <textarea className='content-input' value={ postContent } onChange={ updateContent } />
+          <button type="submit" onClick={ requestUpdatePost }>
+            Update
+          </button>
+          <DeleteButton
+            id={ id }
+            isHomePage={ false }
+          />
+        </form>
+        <div>Update History</div>
         { renderUpdates() }
-      </form>
+      </div>
     )
-  }
-
-  const requestDeletePost = async () => {
-    await deletePost(id);
-    navigate(-1);
   }
 
   return (
@@ -80,7 +87,6 @@ function Update() {
       <Link to="/">Voltar</Link>
       <div>UpdatePage</div>
       { isLoading ? 'Loading' : renderPost() }
-      <button onClick={ requestDeletePost }>Delete Post</button>
     </>
   )
 }
