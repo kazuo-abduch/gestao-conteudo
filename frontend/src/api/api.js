@@ -1,5 +1,6 @@
 import axios from 'axios';
-const api_url = `http://localhost:3001`
+const API_PORT = '3001';
+const api_url = `http://localhost:${API_PORT}`
 
 export const getAllPosts = async () => {
   const postResponse = await axios.get(api_url);
