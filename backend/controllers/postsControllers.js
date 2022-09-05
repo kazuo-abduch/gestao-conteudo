@@ -52,7 +52,7 @@ const deletePost = async (req, res) => {
   const { id } = req.params;
   try {
     await postsServices.deletePost(id)
-    return res.status(201);
+    return res.status(204).end();
   } catch (error) {
     return res.status(404).send({ message: error.message });
   }

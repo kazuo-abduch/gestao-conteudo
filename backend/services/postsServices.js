@@ -46,7 +46,8 @@ const updatePost = async (id, post) => {
 };
 
 const deletePost = async (id) => {
-  await Posts.destroy({ where: { id } } );
+  const deletePost = await Posts.destroy({ where: { id } } );
+  return deletePost;
 }
 
 module.exports = {
