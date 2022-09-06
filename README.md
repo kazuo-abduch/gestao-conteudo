@@ -87,3 +87,7 @@ Acesse o diretório do frontend e inicie a aplicação react com o comando
 ```sh
 npm start
 ```
+
+## Guia de uso
+
+O uso do aplicativo é direto e simples. Existem dois campos de input, um para o título da tarefa, e outro para descrição. Ao finalizar, clique no botão `Confirm` para salvar a tarefa nova. Ao clicar no card desta tarefa, você será redirecionado para a página de detalhes e histórico de atualização onde outros dois campos de input serão usados para enviar uma atualização da tarefa selecionada.
